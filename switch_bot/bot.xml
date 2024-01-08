@@ -1,0 +1,17 @@
+<macro name="bot" icon="PLAY">
+   <assert-service description="Ensure cba20d00-224d-11e6-9fb8-0002a5d5c51b service" uuid="cba20d00-224d-11e6-9fb8-0002a5d5c51b">
+      <assert-characteristic description="Ensure cba20003-224d-11e6-9fb8-0002a5d5c51b characteristic" uuid="cba20003-224d-11e6-9fb8-0002a5d5c51b">
+         <assert-cccd description="Ensure CCCD"/>
+         <property name="NOTIFY" requirement="MANDATORY"/>
+      </assert-characteristic>
+      <assert-characteristic description="Ensure cba20002-224d-11e6-9fb8-0002a5d5c51b characteristic" uuid="cba20002-224d-11e6-9fb8-0002a5d5c51b">
+         <property name="WRITE" requirement="MANDATORY"/>
+      </assert-characteristic>
+   </assert-service>
+   <write-descriptor description="Disable notifications and indications for cba20003-224d-11e6-9fb8-0002a5d5c51b" characteristic-uuid="cba20003-224d-11e6-9fb8-0002a5d5c51b" service-uuid="cba20d00-224d-11e6-9fb8-0002a5d5c51b" uuid="00002902-0000-1000-8000-00805f9b34fb" value="0000"/>
+   <write-descriptor description="Enable notifications for cba20003-224d-11e6-9fb8-0002a5d5c51b" characteristic-uuid="cba20003-224d-11e6-9fb8-0002a5d5c51b" service-uuid="cba20d00-224d-11e6-9fb8-0002a5d5c51b" uuid="00002902-0000-1000-8000-00805f9b34fb" value="0100"/>
+   <write description="Write 0x570100 to cba20002-224d-11e6-9fb8-0002a5d5c51b" characteristic-uuid="cba20002-224d-11e6-9fb8-0002a5d5c51b" service-uuid="cba20d00-224d-11e6-9fb8-0002a5d5c51b" value="570100" type="WRITE_REQUEST"/>
+   <wait-for-notification description="Wait for notification to cba20003-224d-11e6-9fb8-0002a5d5c51b" characteristic-uuid="cba20003-224d-11e6-9fb8-0002a5d5c51b" service-uuid="cba20d00-224d-11e6-9fb8-0002a5d5c51b">
+      <assert-value description="Assert value equals 0x01FF00" value="01FF00"/>
+   </wait-for-notification>
+</macro>

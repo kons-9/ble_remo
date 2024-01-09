@@ -1,0 +1,8 @@
+<macro name="close-curtain" icon="PLAY">
+   <assert-service description="Ensure cba20d00-224d-11e6-9fb8-0002a5d5c51b service" uuid="cba20d00-224d-11e6-9fb8-0002a5d5c51b">
+      <assert-characteristic description="Ensure cba20002-224d-11e6-9fb8-0002a5d5c51b characteristic" uuid="cba20002-224d-11e6-9fb8-0002a5d5c51b">
+         <property name="WRITE" requirement="MANDATORY"/>
+      </assert-characteristic>
+   </assert-service>
+   <write description="Write 0x570F450105FF64 to cba20002-224d-11e6-9fb8-0002a5d5c51b" characteristic-uuid="cba20002-224d-11e6-9fb8-0002a5d5c51b" service-uuid="cba20d00-224d-11e6-9fb8-0002a5d5c51b" value="570F450105FF64" type="WRITE_REQUEST"/>
+</macro>
